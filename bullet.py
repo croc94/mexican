@@ -19,3 +19,15 @@ class Bullet(Sprite):
 
         self.color = game_settings.bullet_color
         self.speed_factor = game_settings.bullet_speed_factor
+
+    def update (self):
+        #Перемещает пулю вправо по экрану
+        #Обновление позиции пули в вещественном формате
+        self.x += self.speed_factor
+
+        #Обновление позиции прямоугольника
+        self.rect.x = self.x
+
+    def draw_bullet (self):
+        #Вывод пули на экран
+        pygame.draw.rect (self.screen, self.color, self.rect)
