@@ -2,8 +2,6 @@
 
 #Импортируем pygame
 import pygame
-from pygame.sprite import Group
-#Инициализируем/запускаем модули pygame
 pygame.init ()
 
 #Импортируем модуль с настройками игры
@@ -15,11 +13,8 @@ import functionality
 #Инициализируем настройки игры
 game_settings = settings.GameSettings ()
 
-#Создаем пулю/текст
-text_bullets = Group ()
-
 #Инициализируе рабочие методы игры
-func = functionality.WorkingClass (game_settings, text_bullets)
+func = functionality.WorkingClass (game_settings, )
 
 
 
@@ -36,7 +31,5 @@ while True:
     func.mexican_move_down ()
 
     game_settings.screen.blit (game_settings.mexican_image, game_settings.mexican_rect)
-
-    text_bullets.update ()
         
     pygame.display.flip ()

@@ -29,13 +29,3 @@ class GameSettings ():
         #Скорость перемещения мексиканца и снаряда
         self.speed_factor = 1
         self.fire_factor = 0.1
-
-        #Параметры снарядов(текста), выпускаемых мескиканцем
-        self.fontObj = pygame.font.Font(None, 24)
-        self.text = self.fontObj.render('PIY-PIY', True, (0, 0, 0))
-        self.text_rect = self.text.get_rect ()
-        self.text_rect.right = self.mexican_rect.right
-        #self.text_flag = True
-
-        #Параметры для группы пуль
-
