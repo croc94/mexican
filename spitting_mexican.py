@@ -10,11 +10,17 @@ import settings
 #ИМпортируем модуль с методами обеспечивающими работу игры
 import functionality
 
+#Импортируем класс Group из pygame.sprite
+from pygame.sprite import Group
+
 #Инициализируем настройки игры
 game_settings = settings.GameSettings ()
 
+#Создание группы для хранения пуль
+bullets = Group ()
+
 #Инициализируе рабочие методы игры
-func = functionality.WorkingClass (game_settings, )
+func = functionality.WorkingClass (game_settings, bullets,)
 
 
 
@@ -30,6 +36,8 @@ while True:
     func.mexican_move_up  ()
     func.mexican_move_down ()
 
-    game_settings.screen.blit (game_settings.mexican_image, game_settings.mexican_rect)
+    bullets.update ()
+
+    game_settings.screen.blit (game_settings.mexican_image, game_settings.mexican_rect, bullets)
         
     pygame.display.flip ()

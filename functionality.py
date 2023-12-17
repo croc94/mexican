@@ -5,7 +5,7 @@ import sys
 
 class WorkingClass ():
     #Класс для описания методов работы игры
-    def __init__(self, game_settings, ) -> None:
+    def __init__(self, game_settings, bullets) -> None:
         self.game_settings = game_settings
 
     def mexican_move_up (self):
