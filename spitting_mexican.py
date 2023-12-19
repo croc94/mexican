@@ -38,6 +38,9 @@ while True:
 
     bullets.update ()
 
-    game_settings.screen.blit (game_settings.mexican_image, game_settings.mexican_rect, bullets)
+    game_settings.screen.blit (game_settings.mexican_image, game_settings.mexican_rect,)
+
+    for bullet in bullets.sprites ():
+        bullet.draw_bullet ()
         
     pygame.display.flip ()

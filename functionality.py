@@ -2,11 +2,13 @@
 
 import pygame
 import sys
+from bullet import Bullet
 
 class WorkingClass ():
     #Класс для описания методов работы игры
     def __init__(self, game_settings, bullets) -> None:
         self.game_settings = game_settings
+        self.bullets = bullets
 
     def mexican_move_up (self):
         #Мексиканец двигается вверх
@@ -33,6 +35,10 @@ class WorkingClass ():
                     #Условие движения вниз
                     if self.game_settings.move_down_flag == True:
                         self.game_settings.move_down_flag = False
+                elif event.key == pygame.K_SPACE:
+                    #Создание новой пули и включение ее в группу
+                    new_bullet = Bullet (self.game_settings,)
+                    self.bullets.add (new_bullet)
 
             elif event.type == pygame.KEYUP:
                 #Поведение для отпускания кнопки

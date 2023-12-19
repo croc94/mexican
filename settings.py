@@ -29,3 +29,9 @@ class GameSettings ():
         #Скорость перемещения мексиканца и снаряда
         self.speed_factor = 1
         self.fire_factor = 0.1
+
+        #Параметры пули
+        self.bullet_speed_factor = 1
+        self.bullet_width = 20
+        self.bullet_height = 5
+        self.bullet_color = 60, 60, 60
