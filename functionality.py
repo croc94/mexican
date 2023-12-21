@@ -49,3 +49,13 @@ class WorkingClass ():
                 elif event.key == pygame.K_s:
                     if self.game_settings.move_down_flag == False:
                         self.game_settings.move_down_flag = True
+
+    def update_bullets (self):
+        #Отображение пуль на экран
+        for bullet in self.bullets.sprites ():
+            bullet.draw_bullet ()
+
+        #Удаление пуль вышедших за край экрана
+        for bullet in self.bullets.copy ():
+            if bullet.rect.right >= self.game_settings.screen_width:
+                self.bullets.remove (bullet)
