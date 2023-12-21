@@ -17,7 +17,7 @@ from pygame.sprite import Group
 game_settings = settings.GameSettings ()
 
 #Создание группы для хранения пуль
-bullets = Group ()
+bullets = Group () 
 
 #Инициализируе рабочие методы игры
 func = functionality.WorkingClass (game_settings, bullets,)

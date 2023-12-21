@@ -20,6 +20,13 @@ class WorkingClass ():
         if self.game_settings.move_down_flag == False and self.game_settings.mexican_rect.bottom < self.game_settings.screen_height:
             self.game_settings.mexican_rect.bottom += self.game_settings.speed_factor
 
+    def fire_bullet (self):
+        #Создание новой пули и включение ее в группу
+        if len (self.bullets) < self.game_settings.bullets_allowed:
+            new_bullet = Bullet (self.game_settings,)
+            self.bullets.add (new_bullet)
+        
+
     def check_events (self):
         #Перебирает события и вызвает соответствующие методы
         for event in pygame.event.get ():
@@ -36,10 +43,7 @@ class WorkingClass ():
                     if self.game_settings.move_down_flag == True:
                         self.game_settings.move_down_flag = False
                 elif event.key == pygame.K_SPACE:
-                    #Создание новой пули и включение ее в группу
-                    if len (self.bullets) < self.game_settings.bullets_allowed:
-                        new_bullet = Bullet (self.game_settings,)
-                        self.bullets.add (new_bullet)
+                    self.fire_bullet ()
 
             elif event.type == pygame.KEYUP:
                 #Поведение для отпускания кнопки
