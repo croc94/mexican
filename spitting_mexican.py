@@ -42,5 +42,9 @@ while True:
 
     for bullet in bullets.sprites ():
         bullet.draw_bullet ()
+
+    for bullet in bullets.copy ():
+        if bullet.rect.right >= game_settings.screen_width:
+            bullets.remove (bullet)
         
     pygame.display.flip ()
