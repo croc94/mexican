@@ -37,8 +37,9 @@ class WorkingClass ():
                         self.game_settings.move_down_flag = False
                 elif event.key == pygame.K_SPACE:
                     #Создание новой пули и включение ее в группу
-                    new_bullet = Bullet (self.game_settings,)
-                    self.bullets.add (new_bullet)
+                    if len (self.bullets) < self.game_settings.bullets_allowed:
+                        new_bullet = Bullet (self.game_settings,)
+                        self.bullets.add (new_bullet)
 
             elif event.type == pygame.KEYUP:
                 #Поведение для отпускания кнопки
