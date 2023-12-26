@@ -13,16 +13,20 @@ import functionality
 #Импортируем класс Group из pygame.sprite
 from pygame.sprite import Group
 
+#Импортируем класс Mexican
+from mexican import Mexican
+
 #Инициализируем настройки игры
 game_settings = settings.GameSettings ()
 
 #Создание группы для хранения пуль
 bullets = Group () 
 
+#Инициализация изображения мексиканца
+mexican = Mexican (game_settings)
+
 #Инициализируе рабочие методы игры
-func = functionality.WorkingClass (game_settings, bullets,)
-
-
+func = functionality.WorkingClass (game_settings, bullets, mexican)
 
 while True:
     #Основной циклы игры
@@ -32,13 +36,12 @@ while True:
     #Закрашиваем фон игры
     game_settings.screen.fill (game_settings.screen_background_color)
 
-    #Двигаем мексиканца
-    func.mexican_move_up  ()
-    func.mexican_move_down ()
+    #Двигаем мексиканца и прожигаем(отображаем)
+    mexican.move ()
+
+    #game_settings.screen.blit (mexican.mexican_image, mexican.mexican_rect,)
 
     bullets.update ()
-
-    game_settings.screen.blit (game_settings.mexican_image, game_settings.mexican_rect,)
 
     func.update_bullets ()
         
