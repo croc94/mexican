@@ -15,21 +15,6 @@ class GameSettings ():
         pygame.display.set_icon (self.mini_image)
         self.screen_center_y = self.screen.get_rect ().centery
 
-        
-        #Параметры  изображения мексиканца
-        '''self.mexican_image = pygame.image.load ('images/mexican.bmp')
-        self.mexican_rect = self.mexican_image.get_rect ()
-        self.mexican_rect.centery = self.screen_center_y'''
-
-        #Флаг для непрерывного движения мексиканца
-        '''self.move_up_flag = True
-        self.move_down_flag = True'''
-
-
-        '''#Скорость перемещения мексиканца и снаряда
-        self.speed_factor = 1
-        self.fire_factor = 0.1'''
-
         #Параметры пули
         self.bullet_speed_factor = 1
         self.bullet_width = 20
