@@ -11,16 +11,6 @@ class WorkingClass ():
         self.bullets = bullets
         self.mexican = mexican
 
-    '''def mexican_move_up (self):
-        #Мексиканец двигается вверх
-        if self.mexican.move_up_flag == False and self.mexican.mexican_rect.top > 0:
-            self.mexican.mexican_rect.top -= self.mexican.speed_factor
-
-    def mexican_move_down (self):
-        #Мексиканец двигается вверх
-        if self.mexican.move_down_flag == False and self.mexican.mexican_rect.bottom < self.game_settings.screen_height:
-            self.mexican.mexican_rect.bottom += self.mexican.speed_factor'''
-
     def fire_bullet (self):
         #Создание новой пули и включение ее в группу
         if len (self.bullets) < self.game_settings.bullets_allowed:
