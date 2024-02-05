@@ -44,9 +44,11 @@ class WorkingClass ():
             elif event.type == pygame.KEYUP:
                 #Поведение для отпускания кнопки
                 if event.key == pygame.K_w:
+                    #Двигает героя вверх
                     if self.mexican.move_up_flag == False:
                         self.mexican.move_up_flag = True
                 elif event.key == pygame.K_s:
+                    #Двигает героя вниз
                     if self.mexican.move_down_flag == False:
                         self.mexican.move_down_flag = True
 
