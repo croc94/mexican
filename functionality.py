@@ -22,6 +22,7 @@ class WorkingClass ():
         #Перебирает события и вызвает соответствующие методы
         for event in pygame.event.get ():
             if event.type == pygame.QUIT:
+                #закрывает игру при нажатии кнопки креста в правм верхнем углу окна
                 sys.exit ()
             elif event.type == pygame.KEYDOWN:
                 #Поведение для нажатия кнопки
@@ -34,8 +35,10 @@ class WorkingClass ():
                     if self.mexican.move_down_flag == True:
                         self.mexican.move_down_flag = False
                 elif event.key == pygame.K_SPACE:
+                    #При нажатии пробела выпустить снаряд
                     self.fire_bullet ()
                 elif event.key == pygame.K_q:
+                    #При нажатии клавиши q закрыть игру
                     sys.exit ()
 
             elif event.type == pygame.KEYUP:
