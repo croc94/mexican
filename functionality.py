@@ -35,6 +35,8 @@ class WorkingClass ():
                         self.mexican.move_down_flag = False
                 elif event.key == pygame.K_SPACE:
                     self.fire_bullet ()
+                elif event.key == pygame.K_q:
+                    sys.exit ()
 
             elif event.type == pygame.KEYUP:
                 #Поведение для отпускания кнопки
