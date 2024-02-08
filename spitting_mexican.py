@@ -16,6 +16,9 @@ from pygame.sprite import Group
 #Импортируем класс Mexican
 from mexican import Mexican
 
+#Импортируем класс Tacos
+from tacos import Tacos
+
 #Инициализируем настройки игры
 game_settings = settings.GameSettings ()
 
@@ -24,6 +27,9 @@ bullets = Group ()
 
 #Инициализация изображения мексиканца
 mexican = Mexican (game_settings)
+
+#Создание такос
+tacos = Tacos (game_settings, )
 
 #Инициализируе рабочие методы игры
 func = functionality.WorkingClass (game_settings, bullets, mexican)
@@ -44,5 +50,8 @@ while True:
     bullets.update ()
 
     func.update_bullets ()
+
+    #Прожигаем такос на экране
+    tacos.blitme ()
         
     pygame.display.flip ()

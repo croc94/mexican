@@ -5,11 +5,10 @@ from pygame.sprite import Sprite
 
 class Tacos(Sprite):
     '''Класс представляющий однин такос'''
-    def __init__(self, settings, screen) -> None:
+    def __init__(self, settings, ) -> None:
         '''Инициализирует пришельца и задает начальную позицию'''
         super().__init__()
         self.settings = settings
-        self.screen = screen
 
         #Загрузка изображения тако и назначение аттрибута rect
         self.image = pygame.image.load ('images/tacos.bmp')
@@ -24,4 +23,4 @@ class Tacos(Sprite):
     
     def blitme (self):
         '''Выводит тако в текущем положении'''
-        self.screen.blit (self.image, self.rect)
+        self.settings.screen.blit (self.image, self.rect)
