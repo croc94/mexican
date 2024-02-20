@@ -26,6 +26,6 @@ class Tacos(Sprite):
         #Сохранение точной позиции тако
         self.y = float (self.rect.y)
     
-    def blitme (self):
+    def update (self):
         '''Выводит тако в текущем положении'''
         self.settings.screen.blit (self.image, self.rect)

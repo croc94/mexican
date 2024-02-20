@@ -3,13 +3,15 @@
 import pygame
 import sys
 from bullet import Bullet
+from tacos import Tacos
 
 class WorkingClass ():
     #Класс для описания методов работы игры
-    def __init__(self, game_settings, bullets, mexican) -> None:
+    def __init__(self, game_settings, bullets, mexican, gr_tacos,) -> None:
         self.game_settings = game_settings
         self.bullets = bullets
         self.mexican = mexican
+        self.gr_tacos = gr_tacos
 
     def fire_bullet (self):
         #Создание новой пули и включение ее в группу
@@ -61,3 +63,20 @@ class WorkingClass ():
         for bullet in self.bullets.copy ():
             if bullet.rect.right >= self.game_settings.screen_width:
                 self.bullets.remove (bullet)
+
+    def create_army (self):
+        #Создает армию такос
+        #Создание такос и вычисление количества такос в столбце
+        #Интервал между соседними такос равен одной ширине такос
+        new_tacos = Tacos (self.game_settings,)
+        tacos_height = new_tacos.rect.height
+        available_space_y = self.game_settings.screen_height - 2 * tacos_height
+        number_tacos_y = int (available_space_y / (2 * tacos_height))
+
+        #Создание первого столбце такос
+        for tacos_number in range (number_tacos_y):
+            #Создание пришельца и размещение его в столбце
+            new_tacos = Tacos (self.game_settings,)
+            new_tacos.y = tacos_height + 2 * tacos_height * tacos_number
+            new_tacos.rect.y = new_tacos.y
+            self.gr_tacos.add (new_tacos)
