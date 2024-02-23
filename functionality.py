@@ -69,14 +69,24 @@ class WorkingClass ():
         #Создание такос и вычисление количества такос в столбце
         #Интервал между соседними такос равен одной ширине такос
         new_tacos = Tacos (self.game_settings,)
-        tacos_height = new_tacos.rect.height
-        available_space_y = self.game_settings.screen_height - 2 * tacos_height
-        number_tacos_y = int (available_space_y / (2 * tacos_height))
+        number_tacos_y = self.get_number_tacos_y ()
 
         #Создание первого столбце такос
         for tacos_number in range (number_tacos_y):
-            #Создание пришельца и размещение его в столбце
-            new_tacos = Tacos (self.game_settings,)
-            new_tacos.y = tacos_height + 2 * tacos_height * tacos_number
-            new_tacos.rect.y = new_tacos.y
-            self.gr_tacos.add (new_tacos)
+            self.create_tacos (tacos_number)
+
+    def get_number_tacos_y (self):
+        #Вычисляет колличество такос в ряду
+        new_tacos = Tacos (self.game_settings,)
+        tacos_height = new_tacos.rect.height
+        available_space_y = self.game_settings.screen_height - 2 * tacos_height
+        number_tacos_y = int (available_space_y / (2 * tacos_height))
+        return number_tacos_y
+    
+    def create_tacos (self, tacos_number):
+        #Создает пришельца и размещает его в ряду
+        new_tacos = Tacos (self.game_settings,)
+        tacos_height = new_tacos.rect.height
+        new_tacos.y = tacos_height + 2 * tacos_height * tacos_number
+        new_tacos.rect.y = new_tacos.y
+        self.gr_tacos.add (new_tacos)
