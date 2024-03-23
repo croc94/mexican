@@ -70,10 +70,12 @@ class WorkingClass ():
         #Интервал между соседними такос равен одной ширине такос
         new_tacos = Tacos (self.game_settings,)
         number_tacos_y = self.get_number_tacos_y ()
+        number_columns = self.get_number_columns ()
 
-        #Создание первого столбце такос
-        for tacos_number in range (number_tacos_y):
-            self.create_tacos (tacos_number)
+        #Создание создание флота
+        for column_number in range (number_columns):
+            for tacos_number in range (number_tacos_y):
+                self.create_tacos (tacos_number, column_number,)
 
     def get_number_tacos_y (self):
         #Вычисляет колличество такос в ряду
@@ -83,10 +85,20 @@ class WorkingClass ():
         number_tacos_y = int (available_space_y / (2 * tacos_height))
         return number_tacos_y
     
-    def create_tacos (self, tacos_number):
+    def get_number_columns (self):
+        #Определяет колличество столбцов, помещающихся на экране
+        new_tacos = Tacos (self.game_settings,)
+        tacos_width = new_tacos.rect.width
+        available_space_x = (self.game_settings.screen_width - (3 * new_tacos.rect.width) - self.mexican.mexican_rect.width)
+        number_columns = int (available_space_x / (2 * tacos_width))
+        return number_columns
+    
+    def create_tacos (self, tacos_number, column_number):
         #Создает пришельца и размещает его в ряду
         new_tacos = Tacos (self.game_settings,)
         tacos_height = new_tacos.rect.height
         new_tacos.y = tacos_height + 2 * tacos_height * tacos_number
         new_tacos.rect.y = new_tacos.y
+        new_tacos.x = self.game_settings.screen_width - 2 * new_tacos.rect.width * column_number
+        new_tacos.rect.x = new_tacos.x
         self.gr_tacos.add (new_tacos)
