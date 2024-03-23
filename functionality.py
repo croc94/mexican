@@ -4,6 +4,7 @@ import pygame
 import sys
 from bullet import Bullet
 from tacos import Tacos
+from random import randint
 
 class WorkingClass ():
     #Класс для описания методов работы игры
@@ -98,7 +99,11 @@ class WorkingClass ():
         new_tacos = Tacos (self.game_settings,)
         tacos_height = new_tacos.rect.height
         new_tacos.y = tacos_height + 2 * tacos_height * tacos_number
-        new_tacos.rect.y = new_tacos.y
+        new_tacos.rect.y = new_tacos.y + self.get_random_tacos_offset ()
         new_tacos.x = self.game_settings.screen_width - 2 * new_tacos.rect.width * column_number
-        new_tacos.rect.x = new_tacos.x
+        new_tacos.rect.x = new_tacos.x + self.get_random_tacos_offset ()
         self.gr_tacos.add (new_tacos)
+
+    def get_random_tacos_offset (self):
+         #Возвращает случайное смещение для отдельного такос
+         return randint (-10, 10)
